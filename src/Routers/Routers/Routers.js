@@ -8,6 +8,7 @@ import Faq from "../../pages/Faq/Faq";
 import Home from "../../pages/Shared/Home/Home";
 import Register from "../../pages/Login/Register/Register";
 
+
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -19,7 +20,7 @@ export const router = createBrowserRouter([
             {
                 path: '/courses',
                 element: <Courses></Courses>,
-                loader: () => fetch('http://localhost:5000/categories')
+                loader: () => fetch('http://localhost:5000/course')
             },
             {
                 path: '/faq', element: <Faq></Faq>
@@ -32,7 +33,12 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/register', element: <Register></Register>
-            }
+            },
+            // {
+            //     path: '/card',
+            //     element: <Card></Card>,
+            //     loader: () => fetch('http://localhost:5000/course')
+            // }
 
         ]
 
