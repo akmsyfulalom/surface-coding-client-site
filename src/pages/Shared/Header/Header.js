@@ -15,7 +15,7 @@ const Header = () => {
 
                     </Link>
                     <div className='flex items-center'>
-                        <Link to="/login" className="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">Login</Link>
+                        <Link to="/login" className="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline ">Login</Link>
                         <Link to="/register" className="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline ml-3">Register</Link>
                     </div>
                 </div>
@@ -26,19 +26,19 @@ const Header = () => {
                         <ul className="flex flex-row mt-0 mr-6 space-x-8 text-sm font-medium ">
                             <li>
 
-                                <Link to="/" className='text-gray-900 dark:text-white hover:underline'>Home</Link>
+                                <Link to="/" className='text-gray-900 dark:text-white hover:underline  hover:text-blue-500'>Home</Link>
                             </li>
                             <li>
 
-                                <Link to="/courses" className='text-gray-900 dark:text-white hover:underline'>Courses</Link>
+                                <Link to="/courses" className='text-gray-900 dark:text-white hover:underline hover:text-blue-500'>Courses</Link>
                             </li>
                             <li>
 
-                                <Link to="/faq" className='text-gray-900 dark:text-white hover:underline'>FAQ</Link>
+                                <Link to="/faq" className='text-gray-900 dark:text-white hover:underline hover:text-blue-500'>FAQ</Link>
                             </li>
                             <li>
 
-                                <Link to="/blog" className='text-gray-900 dark:text-white hover:underline'>Blog</Link>
+                                <Link to="/blog" className='text-gray-900 dark:text-white hover:underline hover:text-blue-500'>Blog</Link>
                             </li>
                         </ul>
                     </div>
