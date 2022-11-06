@@ -7,7 +7,7 @@ const Courses = () => {
 
     const courses = useLoaderData()
     return (
-        <div >
+        <div className='my-10'>
             <div className='lg:m-28 md:m-16 m-6'>
                 <h1 className='font-bold lg:text-5xl text-slate-700'>Courses</h1>
             </div>
@@ -22,8 +22,10 @@ const Courses = () => {
 
                             {
                                 courses.map(category => <dib categories={category.id} category={category}>
-                                    <button type="button" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">{category.title}</button>
+                                    <Link to={`/course/${category._id}`}>
+                                        <button type="button" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">{category.title}</button>
 
+                                    </Link>
                                 </dib>)
                             }
                         </div>
@@ -37,7 +39,7 @@ const Courses = () => {
                     <div className='grid grid-cols-3 gap-x-5 gap-y-5'>
                         {
                             courses.map(course => <div key={course.id} course={course}>
-                                <div className='col-span-1 bg-slate-500 '>
+                                <div className='col-span-1  '>
 
                                     <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
 
