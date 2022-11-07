@@ -27,8 +27,8 @@ const Blog = () => {
                     <p><span className='font-bold'>Ans:</span> The react private route component renders child components ( children ) if the user is logged in. If not logged in the user is redirected to the /login page with the return url passed in the location state property.</p>
                 </div>
                 <div className='col-start-2 col-span-4 mb-5 bg-slate-100 shadow-lg text-justify p-5 rounded-lg' >
-                    <h3 className='font-bold text-xl text-gray-700'>4. What is cors?</h3>
-                    <p><span className='font-bold'>Ans:</span> Cross-origin resource sharing (CORS) is a mechanism that allows a way for web pages to access API or assets running on a different restricted domain.</p>
+                    <h3 className='font-bold text-xl text-gray-700'>4. What is Node? How does Node work?</h3>
+                    <p><span className='font-bold'>Ans:</span>  Node. js is a JavaScript runtime environment that achieves low latency and high throughput by taking a “non-blocking” approach to serving requests. In other words, Node. js wastes no time or resources on waiting for I/O requests to return</p>
                 </div>
             </div>
         </div>
