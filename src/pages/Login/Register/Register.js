@@ -1,11 +1,12 @@
 
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 
 
 const Register = () => {
+    const [accepted, setAccepted] = useState(false);
     const { createUser } = useContext(AuthContext);
     const navigate = useNavigate()
 
@@ -28,8 +29,14 @@ const Register = () => {
                 toast.success('Successfully create account')
                 console.log(user)
             })
-            .catch(error => console.error('Error', error))
+            .catch(error => {
+                toast.error(error.message)
+            })
+
     };
+    const handleAccepted = event => {
+        setAccepted(event.target.checked)
+    }
     return (
         <div className='grid lg:grid-cols-9 my-10 mx-3'>
 
@@ -56,13 +63,13 @@ const Register = () => {
                     </div>
                     <div className="flex items-start mb-6">
                         <div className="flex items-center h-5">
-                            <input id="remember" type="checkbox" value="" className="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required="" />
+                            <input id="remember" onClick={handleAccepted} type="checkbox" value="" className="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required="" />
                         </div>
-                        <Link><label htmlFor="remember" className="ml-2 text-sm font-medium text-gray-900 dark:text-sky-500 "><Link to="/terms">Our terms and condition</Link></label>
+                        <Link><label htmlFor="remember" className="ml-2 text-sm font-medium text-gray-900 dark:text-sky-500 ">Accept <Link to="/terms"><span className='text-blue-600'>Our terms and condition</span></Link></label>
                         </Link>
-                        <label htmlFor="remember" className="ml-2 text-sm font-medium 'text-blue-500' text-gray-900 dark:text-gray-300">Already have an account <Link className='text-blue-500' to="/login">Login</Link></label>
+                        <label htmlFor="remember" className="ml-2 text-sm font-medium 'text-blue-500' text-gray-900 dark:text-gray-300">Already have an account <Link className='text-blue-600' to="/login">Login</Link></label>
                     </div>
-                    <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                    <button type="submit" disabled={!accepted} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
                 </form>
             </div>
 

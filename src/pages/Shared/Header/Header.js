@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import sf from '../../../assets/sf.png'
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import { FaUser } from 'react-icons/fa';
+import Tippy from '@tippyjs/react';
 
 
 const Header = () => {
@@ -36,26 +37,26 @@ const Header = () => {
 
                                 <button onClick={handleLogOut} type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">Log Out</button>
                                 <span className='mr-3'>
+                                    <Tippy content={user?.displayName}>
+                                        <Link to="/profile">
+                                            {
+                                                user?.photoURL ? <>
+                                                    <div className='tooltip ' data-tip="hello">
+                                                        <img className='w-8 h-8 rounded-full' src={user?.photoURL} alt="" />
 
-                                    <Link to="/profile">
-                                        {
-                                            user?.photoURL ? <>
-                                                <div className='tooltip ' data-tip="hello">
-                                                    <img className='w-8 h-8 rounded-full' src={user?.photoURL} alt="" />
-
-                                                </div>
-                                            </>
-                                                :
-                                                <>
-                                                    <div  >
-                                                        <FaUser  ></FaUser>
                                                     </div>
-
-
                                                 </>
-                                        }
-                                    </Link>
+                                                    :
+                                                    <>
+                                                        <div  >
+                                                            <FaUser  ></FaUser>
+                                                        </div>
 
+
+                                                    </>
+                                            }
+                                        </Link>
+                                    </Tippy>
                                 </span>
                             </>
                                 :
