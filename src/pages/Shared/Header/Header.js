@@ -7,6 +7,7 @@ import { FaUser } from 'react-icons/fa';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
+    console.log(user)
 
     const handleLogOut = () => {
         logOut()
@@ -25,23 +26,36 @@ const Header = () => {
 
                     </Link>
                     <div className='flex items-center '>
-
+                        <label htmlFor="small-toggle" className="mr-2  inline-flex relative items-center  cursor-pointer">
+                            <input type="checkbox" value="" id="small-toggle" className="sr-only peer" />
+                            <div class="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                        </label>
 
                         {
                             user?.uid ? <>
 
                                 <button onClick={handleLogOut} type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">Log Out</button>
                                 <span className='mr-3'>
-                                    {
-                                        user?.photoURL ? <>
-                                            <img className='w-8 h-8 rounded-full' src={user?.photoURL} alt="" />
-                                        </>
-                                            :
-                                            <>
-                                                <FaUser></FaUser>
 
+                                    <Link to="/profile">
+                                        {
+                                            user?.photoURL ? <>
+                                                <div className='tooltip ' data-tip="hello">
+                                                    <img className='w-8 h-8 rounded-full' src={user?.photoURL} alt="" />
+
+                                                </div>
                                             </>
-                                    }
+                                                :
+                                                <>
+                                                    <div  >
+                                                        <FaUser  ></FaUser>
+                                                    </div>
+
+
+                                                </>
+                                        }
+                                    </Link>
+
                                 </span>
                             </>
                                 :

@@ -10,6 +10,7 @@ import Register from "../../pages/Login/Register/Register";
 import CourseView from "../../pages/CourseView/CourseView";
 import Premium from "../../pages/Pre/Premium";
 import Terms from "../../pages/Terms/Terms";
+import Profile from "../../pages/Profile/Profile";
 
 
 export const router = createBrowserRouter([
@@ -50,6 +51,9 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/terms', element: <Terms></Terms>
+            },
+            {
+                path: '/profile', element: <Profile></Profile>
             }
 
         ]
