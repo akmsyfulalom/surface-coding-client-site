@@ -7,12 +7,12 @@ const Courses = () => {
 
     const courses = useLoaderData()
     return (
-        <div className='my-10'>
+        <div className='my-10 ml-4'>
             <div className='lg:m-28 md:m-16 m-6'>
                 <h1 className='font-bold lg:text-5xl text-slate-700'>Courses</h1>
             </div>
             <h1 className='font-bold lg:text-3xl text-slate-700 mb-10'>We have {courses.length} courses</h1>
-            <div className='grid grid-cols-4 gap-x-10'>
+            <div className='grid lg:grid-cols-4 gap-x-10 sm:grid-cols-1 '>
                 <div className='ml-4' >
                     <div >
 
@@ -21,12 +21,12 @@ const Courses = () => {
                         <div>
 
                             {
-                                courses.map(category => <dib categories={category.id} category={category}>
+                                courses.map(category => <div key={category.id} categories={category.id} category={category}>
                                     <Link to={`/course/${category._id}`}>
-                                        <button type="button" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">{category.title}</button>
+                                        <button type="button" className="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">{category.title}</button>
 
                                     </Link>
-                                </dib>)
+                                </div>)
                             }
                         </div>
 
@@ -36,7 +36,7 @@ const Courses = () => {
 
                 }
                 <div className='col-span-3 mr-4'>
-                    <div className='grid grid-cols-3 gap-x-5 gap-y-5'>
+                    <div className='grid lg:grid-cols-3 gap-x-5 gap-y-5 sm:grid-cols-1 md:grid-cols-2'>
                         {
                             courses.map(course => <div key={course.id} course={course}>
                                 <div className='col-span-1  '>
