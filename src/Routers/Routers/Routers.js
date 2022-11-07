@@ -11,6 +11,8 @@ import CourseView from "../../pages/CourseView/CourseView";
 import Premium from "../../pages/Pre/Premium";
 import Terms from "../../pages/Terms/Terms";
 import Profile from "../../pages/Profile/Profile";
+import ErrorPage from "../../pages/ErrorPage/ErrorPage";
+import PrivateRouter from "../PrivateRouter/PrivateRouter";
 
 
 export const router = createBrowserRouter([
@@ -46,7 +48,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/premium/:id',
-                element: <Premium></Premium>,
+                element: <PrivateRouter><Premium></Premium>,</PrivateRouter>,
                 loader: ({ params }) => fetch(`http://localhost:5000/premium/${params.id}`)
             },
             {
@@ -56,9 +58,13 @@ export const router = createBrowserRouter([
                 path: '/profile', element: <Profile></Profile>
             }
 
-        ]
+        ],
 
 
+
+    },
+    {
+        path: '*', element: <ErrorPage></ErrorPage>
     }
 
 ])
